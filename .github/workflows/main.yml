@@ -22,8 +22,11 @@ jobs:
           export namespace=$(oci os ns get | jq .data | tr -d '"')
 
           # Create OCIR auth short-lived token
+          # This example uses OCIR in FRA region (replace in necessary)
           oci raw-request --region eu-frankfurt-1 --http-method GET --target-uri 'https://fra.ocir.io/20180419/docker/token' --auth=instance_principal  | jq -r .data.token | docker login -u BEARER_TOKEN --password-stdin fra.ocir.io
           
-          # Use token to pull image from private OCIR repo and run the container
+          # Use token to pull image from your private OCIR repo and then run the container
+          # Replace say-hello:latest with a container you have pushed into your OCIR private repo earlier 
+          
           docker pull fra.ocir.io/$namespace/say-hello:latest
           docker run fra.ocir.io/$namespace/say-hello:latest
