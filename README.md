@@ -15,4 +15,4 @@ Change the line #31 to pull something that exists as private repo in your tenanc
 https://github.com/mikarinneoracle/actions-example-with-OCI-runner/blob/main/.github/workflows/main.yml#L31
 
 Result should be something like:
-<img src="result.jpg>
+![result](result.jpg)
