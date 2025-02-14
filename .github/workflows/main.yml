@@ -15,4 +15,5 @@ jobs:
     steps:
       - name: OCIR token setup
         run: |
-          echo "Hello"
+          oci raw-request --region eu-frankfurt-1 --http-method GET --target-uri 'https://fra.ocir.io/20180419/docker/token' --auth=instance_principal  | jq -r .data.token | docker login -u BEARER_TOKEN --password-stdin fra.ocir.io
+          docker pull mikarinneoracle/hello-world-java-graalvm:latest
