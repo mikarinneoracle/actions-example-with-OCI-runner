@@ -1,4 +1,4 @@
-# GitHub Actions example with OCI Runner
+# GitHub Actions example with OCI Runner using a short-lived token for OCI Registry (Docker image registry)
 
 ## Instructions to test this
 
